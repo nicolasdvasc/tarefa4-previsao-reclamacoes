@@ -52,21 +52,42 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# CSS customizado - minimalista, apenas para melhorias visuais básicas
+# CSS customizado - ajustar métricas para melhor contraste
 st.markdown("""
     <style>
-    .stMetric {
-        background-color: white;
+    /* Métricas com fundo escuro para contraste */
+    div[data-testid="stMetricValue"] {
+        background-color: #1e293b;
+        color: #ffffff;
+        padding: 10px;
+        border-radius: 8px;
+    }
+    
+    div[data-testid="stMetricLabel"] {
+        color: #e2e8f0 !important;
+        font-weight: 600;
+    }
+    
+    div[data-testid="stMetricDelta"] {
+        color: #cbd5e1;
+    }
+    
+    /* Container das métricas */
+    div[data-testid="metric-container"] {
+        background-color: #0f172a;
         padding: 15px;
         border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        border: 1px solid #334155;
     }
+    
+    /* Títulos */
     h1 {
-        color: #1e3a8a;
+        color: #3b82f6;
         font-weight: bold;
     }
     h2 {
-        color: #2563eb;
+        color: #60a5fa;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -716,7 +737,14 @@ if uploaded_file is not None:
                 st.markdown("---")
                 st.subheader("🔮 Simulador de Predição")
                 
-                st.write("Teste o modelo com dados de exemplo:")
+                # Texto com background escuro para legibilidade
+                st.markdown("""
+                    <div style='background-color: #1e293b; padding: 12px; border-radius: 8px; border-left: 4px solid #3b82f6; margin: 10px 0;'>
+                        <p style='color: #e2e8f0; font-size: 16px; margin: 0; font-weight: 500;'>
+                            Teste o modelo com dados de exemplo:
+                        </p>
+                    </div>
+                """, unsafe_allow_html=True)
                 
                 if st.button("🎲 Gerar Predição de Exemplo", type="primary"):
                     # Pegar amostra aleatória
