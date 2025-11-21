@@ -236,7 +236,7 @@ Nícolas Duarte Vasconcellos
 ID: 200042343
 
 **Disciplina:**  
-Modelos Supervisionados
+Sistemas de Informação em Engenharia de Produção
 
 **Professor:**  
 João Gabriel de Moraes Souza
@@ -831,7 +831,7 @@ else:
     ## 👋 Bem-vindo ao Sistema de Previsão de Reclamações
     
     Este dashboard interativo foi desenvolvido como parte da **Tarefa 4** da disciplina de 
-    **Modelos Supervisionados** da Universidade de Brasília.
+    **Sistemas de Informação em Engenharia de Produção** da Universidade de Brasília.
     
     ### 📚 Sobre o Projeto
     
@@ -862,7 +862,7 @@ else:
     - **Aluno:** Nícolas Duarte Vasconcellos
     - **ID:** 200042343
     - **Professor:** João Gabriel de Moraes Souza
-    - **Disciplina:** Engenharia de Produção - Modelos Supervisionados
+    - **Disciplina:** Engenharia de Produção - Sistemas de Informação em Engenharia de Produção
     
     ---
     
