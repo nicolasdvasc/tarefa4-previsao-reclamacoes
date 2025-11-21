@@ -52,7 +52,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# CSS customizado
+# CSS customizado para melhorar contraste e legibilidade
 st.markdown("""
     <style>
     .main {
@@ -71,8 +71,38 @@ st.markdown("""
     h2 {
         color: #2563eb;
     }
+    h3 {
+        color: #1e40af;
+        font-weight: 600;
+    }
     .stAlert {
         border-radius: 10px;
+    }
+    /* Forçar texto escuro em containers brancos */
+    .element-container {
+        color: #1f2937 !important;
+    }
+    /* Garantir que markdown tenha texto escuro */
+    .stMarkdown {
+        color: #1f2937 !important;
+    }
+    /* Corrigir texto em expanders e containers */
+    div[data-testid="stVerticalBlock"] > div {
+        color: #1f2937 !important;
+    }
+    /* Info/Warning/Success boxes com texto escuro */
+    .stAlert p, .stAlert li {
+        color: #1f2937 !important;
+    }
+    /* Garantir legibilidade em todos os elementos de texto */
+    p, span, li, label {
+        color: #1f2937 !important;
+    }
+    /* Botões com melhor contraste */
+    .stButton button {
+        color: white !important;
+        background-color: #2563eb !important;
+        border: none !important;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -669,44 +699,64 @@ if uploaded_file is not None:
                 col1, col2 = st.columns(2)
                 
                 with col1:
-                    st.info("""
-                    **📊 Monitoramento Proativo**
-                    - Implementar sistema de alerta para clientes de alto risco
-                    - Score de risco > 70%: ação imediata
-                    - Score entre 50-70%: monitoramento próximo
-                    - Priorizar recursos da equipe de suporte
-                    """)
+                    st.markdown("""
+                    <div style='background-color: #dbeafe; border-left: 4px solid #3b82f6; padding: 20px; border-radius: 8px; margin: 10px 0;'>
+                        <h4 style='color: #1e40af; margin: 0 0 10px 0;'>📊 Monitoramento Proativo</h4>
+                        <ul style='color: #1e3a8a; margin: 5px 0; padding-left: 20px; line-height: 1.8;'>
+                            <li>Implementar sistema de alerta para clientes de alto risco</li>
+                            <li>Score de risco > 70%: ação imediata</li>
+                            <li>Score entre 50-70%: monitoramento próximo</li>
+                            <li>Priorizar recursos da equipe de suporte</li>
+                        </ul>
+                    </div>
+                    """, unsafe_allow_html=True)
                     
-                    st.success("""
-                    **💡 Personalização**
-                    - Segmentar clientes por perfil de risco
-                    - Campanhas customizadas por segmento
-                    - Ofertas personalizadas para retenção
-                    - Atendimento diferenciado
-                    """)
+                    st.markdown("""
+                    <div style='background-color: #d1fae5; border-left: 4px solid #10b981; padding: 20px; border-radius: 8px; margin: 10px 0;'>
+                        <h4 style='color: #065f46; margin: 0 0 10px 0;'>💡 Personalização</h4>
+                        <ul style='color: #064e3b; margin: 5px 0; padding-left: 20px; line-height: 1.8;'>
+                            <li>Segmentar clientes por perfil de risco</li>
+                            <li>Campanhas customizadas por segmento</li>
+                            <li>Ofertas personalizadas para retenção</li>
+                            <li>Atendimento diferenciado</li>
+                        </ul>
+                    </div>
+                    """, unsafe_allow_html=True)
                 
                 with col2:
-                    st.warning("""
-                    **🔄 Melhoria Contínua**
-                    - Retreinar modelo mensalmente
-                    - Monitorar drift de dados
-                    - Avaliar impacto das ações
-                    - Ajustar estratégias baseado em resultados
-                    """)
+                    st.markdown("""
+                    <div style='background-color: #fef3c7; border-left: 4px solid #f59e0b; padding: 20px; border-radius: 8px; margin: 10px 0;'>
+                        <h4 style='color: #92400e; margin: 0 0 10px 0;'>🔄 Melhoria Contínua</h4>
+                        <ul style='color: #78350f; margin: 5px 0; padding-left: 20px; line-height: 1.8;'>
+                            <li>Retreinar modelo mensalmente</li>
+                            <li>Monitorar drift de dados</li>
+                            <li>Avaliar impacto das ações</li>
+                            <li>Ajustar estratégias baseado em resultados</li>
+                        </ul>
+                    </div>
+                    """, unsafe_allow_html=True)
                     
-                    st.error("""
-                    **⚠️ Pontos de Atenção**
-                    - Investigar causas raiz das reclamações
-                    - Revisar qualidade em categorias críticas
-                    - Melhorar experiência do cliente
-                    - Fortalecer canais de comunicação
-                    """)
+                    st.markdown("""
+                    <div style='background-color: #fee2e2; border-left: 4px solid #ef4444; padding: 20px; border-radius: 8px; margin: 10px 0;'>
+                        <h4 style='color: #991b1b; margin: 0 0 10px 0;'>⚠️ Pontos de Atenção</h4>
+                        <ul style='color: #7f1d1d; margin: 5px 0; padding-left: 20px; line-height: 1.8;'>
+                            <li>Investigar causas raiz das reclamações</li>
+                            <li>Revisar qualidade em categorias críticas</li>
+                            <li>Melhorar experiência do cliente</li>
+                            <li>Fortalecer canais de comunicação</li>
+                        </ul>
+                    </div>
+                    """, unsafe_allow_html=True)
                 
                 # Simulador de Predição
                 st.markdown("---")
                 st.subheader("🔮 Simulador de Predição")
                 
-                st.write("Teste o modelo com dados de exemplo:")
+                st.markdown("""
+                    <p style='color: #1f2937; font-size: 16px; font-weight: 500;'>
+                    Teste o modelo com dados de exemplo:
+                    </p>
+                """, unsafe_allow_html=True)
                 
                 if st.button("🎲 Gerar Predição de Exemplo"):
                     # Pegar amostra aleatória
@@ -744,28 +794,42 @@ if uploaded_file is not None:
                             delta="Correto ✓" if pred_class == actual_class else "Incorreto ✗"
                         )
                     
-                    # Recomendação
+                    # Recomendação com melhor contraste
+                    st.markdown("<br>", unsafe_allow_html=True)
+                    
                     if pred_proba > 0.7:
-                        st.error("""
-                        🚨 **AÇÃO URGENTE RECOMENDADA**
-                        - Contato imediato da equipe de retenção
-                        - Oferecer benefício especial
-                        - Investigar histórico recente
-                        """)
+                        st.markdown("""
+                        <div style='background-color: #fee2e2; border-left: 4px solid #dc2626; padding: 20px; border-radius: 8px; margin: 10px 0;'>
+                            <h4 style='color: #991b1b; margin: 0 0 10px 0;'>🚨 AÇÃO URGENTE RECOMENDADA</h4>
+                            <ul style='color: #7f1d1d; margin: 5px 0; padding-left: 20px;'>
+                                <li>Contato imediato da equipe de retenção</li>
+                                <li>Oferecer benefício especial</li>
+                                <li>Investigar histórico recente</li>
+                            </ul>
+                        </div>
+                        """, unsafe_allow_html=True)
                     elif pred_proba > 0.5:
-                        st.warning("""
-                        ⚠️ **MONITORAMENTO RECOMENDADO**
-                        - Incluir em lista de acompanhamento
-                        - Enviar pesquisa de satisfação
-                        - Monitorar próximas interações
-                        """)
+                        st.markdown("""
+                        <div style='background-color: #fef3c7; border-left: 4px solid #f59e0b; padding: 20px; border-radius: 8px; margin: 10px 0;'>
+                            <h4 style='color: #92400e; margin: 0 0 10px 0;'>⚠️ MONITORAMENTO RECOMENDADO</h4>
+                            <ul style='color: #78350f; margin: 5px 0; padding-left: 20px;'>
+                                <li>Incluir em lista de acompanhamento</li>
+                                <li>Enviar pesquisa de satisfação</li>
+                                <li>Monitorar próximas interações</li>
+                            </ul>
+                        </div>
+                        """, unsafe_allow_html=True)
                     else:
-                        st.success("""
-                        ✅ **CLIENTE DE BAIXO RISCO**
-                        - Manter atendimento padrão
-                        - Continuar estratégia atual
-                        - Acompanhamento de rotina
-                        """)
+                        st.markdown("""
+                        <div style='background-color: #d1fae5; border-left: 4px solid #10b981; padding: 20px; border-radius: 8px; margin: 10px 0;'>
+                            <h4 style='color: #065f46; margin: 0 0 10px 0;'>✅ CLIENTE DE BAIXO RISCO</h4>
+                            <ul style='color: #064e3b; margin: 5px 0; padding-left: 20px;'>
+                                <li>Manter atendimento padrão</li>
+                                <li>Continuar estratégia atual</li>
+                                <li>Acompanhamento de rotina</li>
+                            </ul>
+                        </div>
+                        """, unsafe_allow_html=True)
                 
             else:
                 st.warning("⚠️ Execute o treinamento dos modelos primeiro (Tab: Modelagem)")
