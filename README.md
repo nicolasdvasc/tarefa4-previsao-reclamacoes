@@ -12,7 +12,7 @@ Sistema inteligente para prever comportamento de clientes e reduzir reclamaçõe
 
 - **Aluno:** Nícolas Duarte Vasconcellos
 - **ID:** 200042343
-- **Disciplina:** Modelos Supervisionados
+- **Disciplina:** Sistemas de Informação em Engenharia de Produção
 - **Professor:** João Gabriel de Moraes Souza
 - **Universidade:** Universidade de Brasília (UnB)
 
